@@ -7,8 +7,6 @@ export default function DashboardPage() {
         <WidgetItem />
         <WidgetItem />
         <WidgetItem />
-        <WidgetItem />
-        <WidgetItem />  
       </div>
     </div>
   );
