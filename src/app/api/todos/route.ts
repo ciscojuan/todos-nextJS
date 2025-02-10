@@ -1,5 +1,6 @@
-import prisma from "@/app/lib/pisma";
+import prisma from "@/lib/pisma";
 import { NextResponse, NextRequest } from "next/server";
+import * as yup from "yup";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -33,5 +34,26 @@ export async function GET(request: Request) {
       { error: "Error interno del servidor" },
       { status: 500 }
     );
+  }
+}
+//Validaciones
+const postScheme = yup.object({
+  description: yup.string().required(),
+  complete: yup.boolean().optional().default(false),
+});
+
+export async function POST(request: Request) {
+  try {
+    const { description, complete } = await postScheme.validate(
+      await request.json()
+    );
+    const todo = await prisma.todo.create({
+      data: { description, complete },
+    });
+
+    return NextResponse.json(todo);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(error, { status: 400 });
   }
 }
