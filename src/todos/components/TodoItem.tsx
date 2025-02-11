@@ -14,8 +14,12 @@ export const TodoItem = ({ todo }: Props) => {
   const { id, description, complete, createdAt } = todo;
   return (
     <div className={todo.complete ? styles.todoDone : styles.todoPending}>
-      <div className="flex flex-col sm:flex-row items-center justify-start  gap-4">
-        <div className="flex p-2 rounded-md cursor-pointer hover:bg-opacity-60 bg-blue-100">
+      <div className="flex flex-col sm:flex-row items-center justify-start gap-4">
+        <div
+          className={`flex p-2 rounded-md cursor-pointer hover:bg-opacity-60 ${
+            complete ? "bg-blue-100" : "bg-red-100 "
+          }`}
+        >
           {complete ? (
             <IoCheckboxOutline size={30} />
           ) : (
