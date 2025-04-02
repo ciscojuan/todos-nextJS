@@ -1,5 +1,5 @@
 import prisma from "@/lib/pisma";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import * as yup from "yup";
 
 export async function GET(request: Request) {
@@ -58,7 +58,7 @@ export async function POST(request: Request) {
   }
 }
 
-export async function DELETE(request: Request) {
+export async function DELETE() {
   try {
     await prisma.todo.deleteMany({ where: { complete: true } });
     return NextResponse.json({ message: "todos deleted." }, { status: 204 });

@@ -32,3 +32,13 @@ export const addTodo = async (description: string, complete: boolean) => {
     };
   }
 };
+
+export const deletedTodos = async() => {
+try{
+    const todo = prisma.todo.deleteMany({where: {complete: true}})
+    revalidatePath("/dashboard/server-todos");
+    return todo
+}catch(error){
+  return error
+}
+}

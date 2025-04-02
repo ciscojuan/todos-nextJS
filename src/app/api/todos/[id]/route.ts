@@ -1,18 +1,10 @@
 import prisma from "@/lib/pisma";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import * as yup from "yup";
 
-interface Segments {
-  params: {
-    id: string;
-    description: string;
-    complete?: boolean;
-  };
-}
-
-export async function GET(request: Request, { params }: Segments) {
-  const { id } = params;
-
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  const id = url.pathname.split("/").pop(); // Extraer el ID de la URL
   try {
     const todo = await prisma.todo.findFirst({ where: { id } });
 
@@ -28,7 +20,8 @@ export async function GET(request: Request, { params }: Segments) {
     });
   } catch (error) {
     return NextResponse.json({
-      error: error,
+      error: "Ocurrió un error al recuperar el Todo.",
+      details: error,
     });
   }
 }
@@ -38,8 +31,9 @@ const updateSchema = yup.object({
   complete: yup.boolean().optional(),
 });
 
-export async function PUT(request: Request, { params }: Segments) {
-  const { id } = params;
+export async function PUT(request: Request) {
+  const url = new URL(request.url);
+  const id = url.pathname.split("/").pop(); // Extraer el ID de la URL
 
   const todo = await prisma.todo.findFirst({ where: { id } });
 

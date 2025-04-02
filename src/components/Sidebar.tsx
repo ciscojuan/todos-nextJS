@@ -3,12 +3,14 @@ import Link from "next/link";
 import { CiLogout } from "react-icons/ci";
 import { SidebarItem } from "./SidebarItem";
 import {
+  IoBasketOutline,
   IoCalendarOutline,
   IoCheckbox,
+  IoCodeWorking,
+  IoCodeWorkingOutline,
   IoList,
   IoWaterSharp,
 } from "react-icons/io5";
-import path from "path";
 import { IoIosFlash } from "react-icons/io";
 
 const menuItem = [
@@ -16,16 +18,6 @@ const menuItem = [
     icon: <IoCalendarOutline />,
     title: "Dasboard",
     path: "/dashboard",
-  },
-  {
-    icon: <IoWaterSharp />,
-    title: "Agua",
-    path: "/agua",
-  },
-  {
-    icon: <IoIosFlash />,
-    title: "Energia",
-    path: "/energia",
   },
   {
     icon: <IoList />,
@@ -36,6 +28,16 @@ const menuItem = [
     icon: <IoCheckbox />,
     title: "Rest Todos",
     path: "/dashboard/rest-todos",
+  },
+  {
+    icon: <IoCodeWorkingOutline />,
+    title: "Cookies",
+    path: "/dashboard/cookies",
+  },
+  {
+    icon: <IoBasketOutline />,
+    title: "Productos",
+    path: "/dashboard/products",
   },
 ];
 
