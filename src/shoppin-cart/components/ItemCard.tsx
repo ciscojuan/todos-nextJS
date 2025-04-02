@@ -27,7 +27,7 @@ export const ItemCard = ({ product, quantity }: Props) => {
   }
 
   return (
-    <div className="flex items-center shadow rounded-lg w-full bg-gray-800 border-gray-100">
+    <div className="flex items-center justify-center shadow rounded-lg w-full bg-gray-800 border-gray-100">
       {/* Product Image */}
       <div className="p-2">
         <Image
@@ -40,7 +40,7 @@ export const ItemCard = ({ product, quantity }: Props) => {
       </div>
 
       {/* Title */}
-      <div className="px-5 pb-5 w-full flex flex-col mt-2">
+      <div className="px-5 pb-5 w-full flex flex-col my-2">
         <a href="#">
           <h3 className="font-semibold text-xl tracking-tight text-white">
             {product.name} -{" "}
@@ -69,7 +69,7 @@ export const ItemCard = ({ product, quantity }: Props) => {
         <span className="text-2xl text-white mx-10">{quantity}</span>
         <button
           onClick={onRemoveItem}
-          className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+          className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.  5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
         >
           <IoRemove size={25} />
         </button>
