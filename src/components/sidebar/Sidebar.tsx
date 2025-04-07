@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CiLogout } from "react-icons/ci";
 import { SidebarItem } from "./SidebarItem";
 import {
   IoBasketOutline,
@@ -10,7 +9,6 @@ import {
   IoList,
   IoPeopleOutline,
 } from "react-icons/io5";
-import { IoIosFlash } from "react-icons/io";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { LogOutButton } from "./LogOutButton";
