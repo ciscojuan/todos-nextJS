@@ -16,7 +16,7 @@ model Todo {
 }
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String  @id @default(uuid())
   userId            String  @map("user_id")
   type              String
   provider          String
@@ -35,7 +35,7 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(uuid())
   sessionToken String   @unique @map("session_token")
   userId       String   @map("user_id")
   expires      DateTime
@@ -45,8 +45,10 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id @default(uuid())
   name          String?
+  roles         String[]  @default(["user"]) //Añadidos personalizados
+  isActive      Boolean   @default(true) //Añadidos perso
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
