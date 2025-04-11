@@ -15,6 +15,10 @@ export default async function DashboardPage() {
           <div className="flex flex-col">
             <span>{session.user?.name}</span>
             <span>{session.user?.email}</span>
+           
+           <div className="flex flex-col">
+            {JSON.stringify(session)}
+            </div> 
           </div>
         </WidgetItem>
       </div>
